@@ -1,0 +1,28 @@
+body{
+    margin: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+.message-box {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+}

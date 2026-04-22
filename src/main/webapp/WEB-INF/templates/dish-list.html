@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Món Ăn</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<div layout:fragment="content">
+    <h2>Thực Đơn Nhà Hàng</h2>
+
+    <div th:if="${dishes == null or #lists.isEmpty(dishes)}" class="error-message">
+        <p>Hiện tại nhà hàng đang cập nhật thực đơn, vui lòng quay lại sau</p>
+    </div>
+    <div th:if="${errorMessage != null}" class="error-message">
+        <p th:text="${errorMessage}"></p>
+    </div>
+
+    <table th:unless="${dishes == null or #lists.isEmpty(dishes)}">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên Món Ăn</th>
+                <th>Giá (VNĐ)</th>
+                <th>Trạng Thái</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="dish: ${dishes}">
+                <td th:text="${dish.getId()}"></td>
+                <td th:text="${dish.getName()}"></td>
+                <td th:text="${#numbers.formatDecimal(dish.getPrice(), 1, 'POINT', 0, 'COMMA')}"></td>
+                <td th:switch="${dish.isAvailable()}">
+                    <span th:case="true">Còn hàng</span>
+                    <span th:case="false" class="out-of-stock">Hết hàng</span>
+                </td>
+                <td>
+                    <a th:href="@{|/bai4/edit/${dish.getId()}|}">Sửa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

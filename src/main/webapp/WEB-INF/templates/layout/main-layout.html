@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Nhà Hàng Spring</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>Hệ Thống Quản Lý Nhà Hàng</h1>
+    </div>
+</header>
+
+<main layout:fragment="content">
+    <!-- nội dung được chèn vào đây -->
+</main>
+
+<footer>
+    <div>
+        <p>Liên hệ: info@nhahangspring.com | Hotline: 0123-456-789</p>
+    </div>
+</footer>
+
+</body>
+</html>
